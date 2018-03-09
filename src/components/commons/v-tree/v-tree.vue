@@ -82,7 +82,6 @@
 							
 							if(m.id === node.id){
 								m.active = true;
-								console.log(m.id)
 							}else {
 								m.active = false;
 							}

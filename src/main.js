@@ -8,7 +8,6 @@ import Vuex from 'vuex'
 import $ from 'jquery'
 
 
-
 import './assets/bootstrap-3.3.7/dist/js/bootstrap.min.js'
 import './assets/bootstrap-3.3.7/dist/css/bootstrap.min.css'
 
@@ -74,7 +73,12 @@ new Vue({
   	checkLogin(){
   		
   		if(this.getCookie('session')){
-  			this.$router.push({path:'/homes'});
+
+        var histroy = location.hash.split('#')[1];
+        if(!histroy){
+          histroy = '/home';
+        }
+  			this.$router.push({path:histroy});
   		}else{
   			this.$router.push({path:'/login'})
   		}

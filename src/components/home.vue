@@ -80,7 +80,7 @@
 				//this.$router.push({path:'sdns'});
 				this.treeNode = JSON.parse(target);
 				console.log(target,parents)
-				//console.log(this.$refs.lefttree.$refs.vtree.setSelectedNode(parents[0]));
+				
 				
 			},
 	
