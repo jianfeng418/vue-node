@@ -20,44 +20,10 @@
 	import resourceContent from './resourceContent'
 	import leftTree from './leftTree'
 	import vhead from './head'
-	const router = new VueRouter({
-	  routes: [
-	    {
-	      path: '/homes/mains',
-	      components: {
-	        contents:mains
-	      }
-	    },{
-	    	path:'/homes/vms',
-	    	components:{
-	    		contents:resourceContent
-	    	}
-	    },{
-	    	path:'/homes/hosts',
-	    	components:{
-	    		contents:resourceContent
-	    	}
-	    },{
-	    	path:'/homes/stores',
-	    	components:{
-	    		contents:resourceContent
-	    	}
-	    },{
-	    	path:'/homes/networks',
-	    	components:{
-	    		contents:resourceContent
-	    	}
-	    },{
-	    	path:'/homes/sdns',
-	    	components:{
-	    		contents:resourceContent
-	    	}
-	    }
-	  ]
-	})
+
 	export default{
 		name:'homes',
-		router,
+		//router,
 		data(){
 			return {
 				navLists:[
@@ -76,11 +42,7 @@
 		},
 		methods:{
 			clickNode(target,parents){
-				
-				//this.$router.push({path:'sdns'});
 				this.treeNode = JSON.parse(target);
-				console.log(target,parents)
-				
 				
 			},
 	
@@ -130,5 +92,17 @@
 		float:left;
 		width:calc(100% - 320px);
 		height:100%;
+	}
+	button.btn.btn-default{
+		background-color:#1d92af;
+		border-color:#1d92af;
+		border-radius:0px;
+		color:white;
+	}
+	button.btn.btn-default:hover{
+		background-color:#39ace5;
+	}
+	button.btn.btn-default:active{
+		color:white;
 	}
 </style>

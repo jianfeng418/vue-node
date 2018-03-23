@@ -1,4 +1,4 @@
-# my-vue
+# my-ics
 
 > A Vue.js project
 

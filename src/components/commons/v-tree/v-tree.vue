@@ -74,14 +74,22 @@
 				getCheckedNodesFun(this.treeData);
 				return resultArr;
 			},
-			setSelectedNode(node){
-
+			getRoot(){
+				return this.treeData[0];
+			},
+			setSelectedNode(node,clickDiv){
+				var select;
+				var that = this;
 				var setSelectedFun = (datas) => {
 					if(datas){
 						datas.forEach((m) => {
 							
 							if(m.id === node.id){
 								m.active = true;
+								select = m;
+								if(clickDiv && that.$el.querySelector('#'+m.id)){
+									that.$el.querySelector('#'+m.id).click();
+								}
 							}else {
 								m.active = false;
 							}
@@ -92,7 +100,7 @@
 					}
 				};
 				setSelectedFun(this.treeData);
-
+				return select;
 			},
 			getSelectedNode(){
 				var resultNode = null;

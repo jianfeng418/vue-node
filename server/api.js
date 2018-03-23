@@ -29,17 +29,17 @@ router.get('/api/treeData',(req,res) => {
          case 'mains':
             treeDatas = [
                 {text:'主页',
-                  id:'1',
+                  id:'d1',
                   icon:'folder',
                   type:'icenter',
                   children:[
                       {text:'1-1',
-                        id:'1-1',
+                        id:'d1-1',
                         icon:'folder',
                         type:'main',
                         children:[
                           {text:'1-1-1',
-                            id:'1-1-1',
+                            id:'d1-1-1',
                             icon:'file',
                             type:'system'
                           }]
@@ -50,18 +50,18 @@ router.get('/api/treeData',(req,res) => {
                 break;
          case 'hosts':
             treeDatas = [
-                {text:'主机',
-                  id:'1',
+                {text:'center',
+                  id:'s1',
                   icon:'folder',
                   type:'icenter',
                   children:[
-                      {text:'1-1',
-                        id:'1-1',
+                      {text:'数据中心1',
+                        id:'dc-1-1',
                         type:'dc',
                         icon:'folder',
                         children:[
-                          {text:'1-1-1',
-                            id:'1-1-1',
+                          {text:'主机1',
+                            id:'host-1-1-1',
                             icon:'file',
                             type:'host'
                           }]
@@ -72,18 +72,18 @@ router.get('/api/treeData',(req,res) => {
                 break;
         case 'vms':
              treeDatas = [
-                {text:'虚拟机',
-                  id:'1',
+                {text:'center-VM',
+                  id:'s1',
                   icon:'folder',
                   type:'icenter',
                   children:[
-                      {text:'1-1',
-                        id:'1-1',
+                      {text:'数据中心-VM',
+                        id:'d1-1',
                         type:'dc',
                         icon:'folder',
                         children:[
-                          {text:'1-1-1',
-                            id:'1-1-1',
+                          {text:'虚拟机1',
+                            id:'d1-1-1',
                             type:'vm',
                             icon:'file',
 
@@ -95,18 +95,18 @@ router.get('/api/treeData',(req,res) => {
                 break;
         case 'stores':
             treeDatas = [
-                {text:'存储',
-                  id:'1',
+                {text:'center-Storage',
+                  id:'s1',
                   icon:'folder',
                   type:'icenter',
                   children:[
-                      {text:'1-1',
-                        id:'1-1',
+                      {text:'数据中心-Storage',
+                        id:'s1-1',
                         icon:'folder',
                         type:'dc',
                         children:[
-                          {text:'1-1-1',
-                            id:'1-1-1',
+                          {text:'存储1',
+                            id:'d1-1-1',
                             icon:'file',
                             type:'store'
                           }]
@@ -116,18 +116,18 @@ router.get('/api/treeData',(req,res) => {
                 break;
         case 'networks' :
             treeDatas = [
-                {text:'网络',
-                  id:'1',
+                {text:'center-Net',
+                  id:'d1',
                   icon:'folder',
                   type:'icenter',
                   children:[
-                      {text:'1-1',
-                        id:'1-1',
+                      {text:'数据中心',
+                        id:'d1-1',
                         icon:'folder',
                         type:'dc',
                         children:[
-                          {text:'1-1-1',
-                            id:'1-1-1',
+                          {text:'网络1',
+                            id:'d1-1-1',
                             icon:'file',
                             type:'network'
 
@@ -139,18 +139,18 @@ router.get('/api/treeData',(req,res) => {
                 break;
          case 'sdns':
             treeDatas = [
-                {text:'SDN',
-                  id:'1',
+                {text:'center',
+                  id:'s1',
                   icon:'folder',
                   type:'icenter',
                   children:[
-                      {text:'1-1',
-                        id:'1-1',
+                      {text:'数据中心',
+                        id:'s1-1',
                         icon:'folder',
                         type:'dc',
                         children:[
-                          {text:'1-1-1',
-                            id:'1-1-1',
+                          {text:'高级网络1',
+                            id:'s1-1-1',
                             icon:'file',
                             type:'sdn'
                           }]

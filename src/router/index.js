@@ -16,35 +16,39 @@ export default new Router({
     {path:'/login',name:'login',components:{main:login}},
     {path:'/homes',name:'homes',components:{main:home},children:[
     	{
-	      path: 'mains',
+	      path: 'mains/:type?/:id?',
 	      components: {
 	        contents:mains
 	      }
 	    },{
-	    	path:'vms',
+	    	path:'vms/:type?/:id?',
 	    	components:{
 	    		contents:resourceContent
-	    	}
+	    	},
+	    	
 	    },{
-	    	path:'hosts',
+	    	path:'hosts/:type?/:id?',
 	    	components:{
 	    		contents:resourceContent
-	    	}
+	    	},
+	    	
 	    },{
-	    	path:'stores',
+	    	path:'stores/:type?/:id?',
 	    	components:{
 	    		contents:resourceContent
-	    	}
+	    	},
 	    },{
-	    	path:'networks',
+	    	path:'networks/:type?/:id?',
 	    	components:{
 	    		contents:resourceContent
-	    	}
+	    	},
+	    	
 	    },{
-	    	path:'sdns',
+	    	path:'sdns/:type?/:id?',
 	    	components:{
 	    		contents:resourceContent
-	    	}
+	    	},
+	 
 	    }
 
     ]},

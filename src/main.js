@@ -7,13 +7,14 @@ import VueResource from 'vue-resource'
 import Vuex from 'vuex'
 import $ from 'jquery'
 
+import vDialogJf from 'vue-dialog-jf'
 
-import './assets/bootstrap-3.3.7/dist/js/bootstrap.min.js'
-import './assets/bootstrap-3.3.7/dist/css/bootstrap.min.css'
+import './assets/css/bootstrap.min.css'  
+import './assets/js/bootstrap.min'
 
 Vue.use(VueResource);
 Vue.use(Vuex);
-
+Vue.use(vDialogJf);
 Vue.config.productionTip = false
 
 Vue.prototype.setCookie = (name,value,expiredays) => {
@@ -45,6 +46,9 @@ const store = new Vuex.Store({
     text:null,
     children:null,
     parents:null,
+    btnGroup:null,
+    viewTab:null,
+    currentView:null,
   },
   mutations: {
     updateCurNode(state,newTarget) {
@@ -52,7 +56,10 @@ const store = new Vuex.Store({
       state.type = newTarget.type;
       state.text = newTarget.text;
       state.children = newTarget.children;
-      state.parents = newTarget.parents
+      state.parents = newTarget.parents;
+      state.btnGroup = newTarget.btnGroup;
+      state.viewTab = newTarget.viewTab;
+      state.currentView = newTarget.currentView;
     }
   }
 })
