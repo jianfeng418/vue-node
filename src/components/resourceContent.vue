@@ -1,10 +1,10 @@
 <template>
-	<div class='resourceContent'>
+	<div class='resourceContent cus-100percent-h'>
 		<div class='breadCrumbsWrap'>
 			<ul class='crumbUl'>
 				<li v-for='(crumb,index) in $store.state.parents'>
 					<a @click='jump(crumb)'>{{crumb.text}}</a>
-					<span > / </span>
+					<span > / &nbsp;</span>
 				</li>
 				<li>
 					{{$store.state.text}}
@@ -15,7 +15,7 @@
 			<!-- <resource-btn-group></resource-btn-group> -->
 			<btnGroups></btnGroups>
 		</div>
-		<div class='resourceTabs'>
+		<div class='resourceTabs' style='height:calc(100% - 70px)'>
 			<resource-tab :tabData='$store.state.viewTab'></resource-tab>
 		</div>
 	</div>
@@ -49,6 +49,9 @@
 </script>
 
 <style>
+	.cus-100percent-h{
+		height:100%
+	}
 	.resourceContent{
 		padding:0px 10px;
 	}

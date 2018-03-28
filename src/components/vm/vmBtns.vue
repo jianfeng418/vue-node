@@ -10,13 +10,14 @@
 		name:'networkBtns',
 		methods:{
 			createVm(){
+				var that = this;
 				var dia = this.$v_dialog({
 			        title:'创建账号',
 			        width:'600px',
 			        height:'400px',
 			        multi:true,  //多步操作传true
 			        render:createVmCom,
-			        appData:{name:'ddsd',description:'good boy'},
+			        appData:{name:that.$store.state.text,description:'good boy'},
 			        complate:function(data){
 			            //that.num = data
 			            console.log(data);

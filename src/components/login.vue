@@ -4,11 +4,11 @@
 		</div>
 		<div class='loginDiv '>
 			<form class="form-horizontal" role="form">
-				<h2>{{welcome}}</h2>
+				<h2 class=' login-title'>{{welcome}}</h2>
 				<div class='form-group'>
 					<label for='userName' class='col-xs-2 control-label'>用户：</label>
 					<div class='col-xs-8'>
-						<input id='userName' placeholder='userName' v-model='userName'  class='form-control ' />
+						<input id='userName'  placeholder='userName' v-model='userName'  class='form-control ' />
 					</div>
 				</div>
 				<div class='form-group'>
@@ -52,11 +52,11 @@
 						if(response.body.checked === 'success'){
 							this.setCookie('session',response.body.session,response.body.expiredays);
 							//Vue.http.headers.common['Authorization'] ='Basic';
-							this.$router.push({path:'homes'});
+							this.$router.push({path:'homes/mains'});
 						}
 					})
 					.then((response) => {
-						console.log(response)
+						//console.log(response)
 					})
 
 
@@ -91,6 +91,11 @@
 		height:100%;
 
 	}
+	.login-title{
+		margin-bottom:130px;
+		
+	}
+
 	.bgDiv{
 		width:100%;
 		height:100%;
@@ -117,7 +122,9 @@
 		bottom:100px;
 		background:url('../images/systembac.jpg');
 		color:white;
-
-
 	}
+	.loginDiv input{
+		width:100% !important;
+	}
+
 </style>

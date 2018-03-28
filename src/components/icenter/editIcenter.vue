@@ -29,7 +29,7 @@
 </template>
 <script>
 	export default{
-		name:'createVm',
+		name:'editDc',
 		data(){
 			return{
 				initName: this.appData.name

@@ -7,7 +7,10 @@
 	export default{
 		name:'createNetwork',
 		methods:{
-		
+			complateFun:function(){
+				this.$root.close()
+				
+			}
 		}
 	}
 </script>

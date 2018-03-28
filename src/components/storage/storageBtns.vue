@@ -1,21 +1,21 @@
 <template>
 	<div>
-		<button class='btn btn-default' @click='createNetwork'>创建network</button>
-		<button class='btn btn-default' @click='modifyIcenter'>编辑network</button>
+		<button class='btn btn-default' @click='createSdnNet'>创建storage</button>
+		<button class='btn btn-default' @click='modifySdnNet'>编辑storage</button>
 	</div>
 </template>
 <script>
-	import createNetworkCom from './createNetwork'
+	import createStorageCom from './createStorage'
 	export default{
-		name:'networkBtns',
+		name:'storageBtns',
 		methods:{
-			createNetwork(){
+			createSdnNet(){
 				var dia = this.$v_dialog({
 			        title:'创建账号',
 			        width:'400px',
 			        height:'300px',
 			        multi:false,  //多步操作传true
-			        render:createNetworkCom,
+			        render:createStorageCom,
 			        appData:{name:'ddsd',description:'good boy'},
 			        complate:function(data){
 			            //that.num = data
@@ -24,7 +24,7 @@
 			    }); 
 			},
 			
-			modifyIcenter(){
+			modifySdnNet(){
 				alert(this.$store.state.type+this.$store.state.id)
 			}
 		}

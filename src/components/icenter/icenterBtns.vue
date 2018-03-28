@@ -1,22 +1,22 @@
 <template>
 	<div>
-		<button class='btn btn-default' @click='createDc'>创建dc</button>
-		<button class='btn btn-default' @click='editDc'>编辑dc</button>
+		<button class='btn btn-default' @click='createIcenter'>创建center</button>
+		<button class='btn btn-default' @click='editIcenter'>编辑center</button>
 	</div>
 </template>
 <script>
-	import createDcCom from './createDc'
-	import editDcCom from './editDc'
+	import createIcenterCom from './createIcenter'
+	import editIcenterCom from './editIcenter'
 	export default{
 		name:'networkBtns',
 		methods:{
-			createDc(){
+			createIcenter(){
 				var dia = this.$v_dialog({
 			        title:'创建账号',
 			        width:'400px',
 			        height:'300px',
 			        multi:false,  //多步操作传true
-			        render:createDcCom,
+			        render:createIcenterCom,
 			        appData:{name:'ddsd',description:'good boy'},
 			        complate:function(data){
 			            //that.num = data
@@ -24,14 +24,14 @@
 			        },
 			    }); 
 			},
-			editDc(){
+			editIcenter(){
 				var that = this;
 				var dia = this.$v_dialog({
 			        title:'创建账号',
 			        width:'600px',
 			        height:'400px',
 			        multi:true,  //多步操作传true
-			        render:editDcCom,
+			        render:editIcenterCom,
 			        appData:{name:that.$store.state.text,description:'good boy'},
 			        complate:function(data){
 			            //that.num = data

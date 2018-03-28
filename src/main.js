@@ -7,7 +7,9 @@ import VueResource from 'vue-resource'
 import Vuex from 'vuex'
 import $ from 'jquery'
 
+import Validator from 'easiest-js-validator';
 import vDialogJf from 'vue-dialog-jf'
+import vuetable from 'vuetable-2'
 
 import './assets/css/bootstrap.min.css'  
 import './assets/js/bootstrap.min'
@@ -15,6 +17,9 @@ import './assets/js/bootstrap.min'
 Vue.use(VueResource);
 Vue.use(Vuex);
 Vue.use(vDialogJf);
+Vue.use(vuetable)
+Vue.component("vuetable", vuetable);
+
 Vue.config.productionTip = false
 
 Vue.prototype.setCookie = (name,value,expiredays) => {
@@ -34,7 +39,7 @@ Vue.prototype.getCookie = (name) =>{
 Vue.prototype.delCookie = (name) => {
     var exp = new Date();
     exp.setTime(exp.getTime() - 1);
-    var cval = getCookie(name);
+    var cval = Vue.prototype.getCookie(name);
     if (cval != null)
       document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString();
   }
@@ -74,7 +79,7 @@ new Vue({
   created(){
   		this.checkLogin();
   },
-  components: { App },
+  components: { App,vuetable },
   template: '<App/>',
   methods:{
   	checkLogin(){

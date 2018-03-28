@@ -7,7 +7,7 @@
 			<div class='home-content-body-left'>
 				<left-tree ref='lefttree' @clickTreeNode='clickNode'></left-tree>
 			</div>
-			<div class='home-content-body-center'>
+			<div class='home-content-body-center cus-100percent-h'>
 				<router-view name='contents'></router-view>
 			</div>
 		</div>
@@ -27,12 +27,12 @@
 		data(){
 			return {
 				navLists:[
-					{text:'主页',link:'/homes/mains'},
-					{text:'虚拟机',link:'/homes/vms'},
-					{text:'计算池',link:'/homes/hosts'},
-					{text:'存储池',link:'/homes/stores'},
-					{text:'网络池',link:'/homes/networks'},
-					{text:'SDN',link:'/homes/sdns'}
+					{text:'main',link:'/homes/mains'},
+					{text:'head',link:'/homes/vms'},
+					{text:'hand',link:'/homes/hosts'},
+					{text:'body',link:'/homes/stores'},
+					{text:'knee',link:'/homes/networks'},
+					{text:'foot',link:'/homes/sdns'}
 				],
 				treeNode:null,
 			}
@@ -53,6 +53,9 @@
 
 </script>
 <style>
+	.cus-100percent-h{
+		height:100%;
+	}
 	.home-content{
 		height:100%
 	}
@@ -80,7 +83,7 @@
 		bottom:10px;
 	}
 	.home-content .home-content-body .home-content-body-left{
-		width:300px;
+		width:20%;
 		border:1px solid black;
 		background:#f0f0f0;
 		height:100%;
@@ -90,7 +93,7 @@
 		border:1px solid black;
 		margin-left:20px;
 		float:left;
-		width:calc(100% - 320px);
+		width:calc(80% - 20px);
 		height:100%;
 	}
 	button.btn.btn-default{

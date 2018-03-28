@@ -5,8 +5,7 @@
 </template>
 <script>
 	import vTree from './commons/v-tree/v-tree.vue'
-		import hosts from './hosts'
-		import mains from './mains'
+	import tabsInfo from './tabsInfo'
 
 	export default{
 		name:'left-tree',
@@ -21,10 +20,8 @@
 		},
 		methods:{
 			clickNode(target){
-				console.log('click')
 				var targetNode = JSON.parse(target);
 				var parentsArr = this.$refs.vtree.getParentNodesArr(targetNode);
-				
 				this.refreshResource(targetNode);	//更新当前选中项
 				
 				this.updataUrl(targetNode);	//更新url
@@ -36,18 +33,9 @@
 
 				var parentsArrs;
 
-				//type赋值
-				switch (resourceType){
-					case 'icenter':
-						node.viewTab = [{href:'11',name:'s',view:hosts},{href:'22',name:'is',view:mains},{href:'33',name:'Vb',view:hosts},{href:'44',name:'java',view:mains}];
-						break;
-					case 'dc':
-						node.viewTab = [{href:'11',name:'svn',view:hosts},{href:'33',name:'Vb',view:mains},{href:'44',name:'java',view:hosts}];
-						break;
-					default:
-						node.viewTab = [{href:'11',name:'svn',view:hosts},{href:'33',name:'Vb',view:mains}];
-
-				};
+				//viewTab
+				node.viewTab = tabsInfo.methods.getTabs(resourceType);
+				
 				//树父级赋值
 				parentsArrs = this.$refs.vtree.getParentNodesArr(node);
 				node.parents = parentsArrs.reverse();
@@ -63,16 +51,33 @@
 				}else if(location.hash.split('/').length === 3){
 					this.$router.push({path:node.type+'/'+node.id,append:true});
 				}
-				
-
 			},
 			modifyTreeData(newValue,oldValue){	//根据url获取判断资源类型，获取左侧树
-				
-				if(oldValue && newValue.path.split('/')[2] === oldValue.path.split('/')[2]){
-					return ;
-				}
-				var sourceType = newValue.path.split('/')[2];
+					
+				var newPathArr = newValue.path.split('/');//
+				var oldPathArr = oldValue ? oldValue.path.split('/') : [];
 
+				if(newPathArr[4] && this.$refs.vtree){	//手动更改错乱的url时，
+					var selectedNode = this.$refs.vtree.getSelectedNode();
+					if(selectedNode && (newPathArr[4] !== selectedNode.id || newPathArr[3] !== selectedNode.type)){
+						var manaual = this.$refs.vtree.findNode(newPathArr[4]);
+						if(manaual && manaual.type === newPathArr[3]){
+							this.$refs.vtree.setSelectedNode(manaual,true);
+						}else{
+							this.$refs.vtree.setSelectedNode(selectedNode,true);
+						}
+					}
+					
+				}
+
+				//获取treedata部分
+				if(oldValue && newPathArr[2] === oldPathArr[2]){
+					if(newPathArr.length !== 3){
+						return ;
+					}
+					
+				}
+				var sourceType = newPathArr[2] ? newPathArr[2]:'mains';
 				this.$http.get('/api/treeData',{params:{source:sourceType}})
 					.then( (req)=> {
 						if(req.body){
@@ -94,7 +99,7 @@
 			var locationHash = location.hash.split('/');
 			var locationType = locationHash[3];
 			var locationId = locationHash[4];
-
+			console.log('trigger updated')
 			if(locationId && this.$refs.vtree){
 				var locationNode = this.$refs.vtree.setSelectedNode({id:locationId});
 				
@@ -106,9 +111,10 @@
 				var seletedNode = this.$refs.vtree.getSelectedNode();
 				if(seletedNode.id !== this.$store.state.id){
 					this.$refs.vtree.setSelectedNode({id:seletedNode.id},true);
-					
+					console.log('this is todo')
 				}
 			}else if(locationHash.length === 3 && this.$refs.vtree){
+
 				var rootId = this.$refs.vtree.getRoot().id;
 				this.$refs.vtree.setSelectedNode({id:rootId},true);
 				

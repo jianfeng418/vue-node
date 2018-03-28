@@ -77,6 +77,30 @@
 			getRoot(){
 				return this.treeData[0];
 			},
+			findNode(selectedId){
+				var result;
+				var findNodeFun = (datas) => {
+					if(datas){
+						try{
+							datas.forEach((m) => {
+								if(m.id === selectedId){
+									result = m;
+									throw new Error('stop');
+								}
+								if(m.children){
+									findNodeFun(m.children);
+								}
+
+							})
+						}catch(e){
+
+						}
+						
+					}
+				};
+				findNodeFun(this.treeData);
+				return result;
+			},
 			setSelectedNode(node,clickDiv){
 				var select;
 				var that = this;

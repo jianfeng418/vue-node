@@ -1,12 +1,12 @@
 <template>
-	<div>
+	<div style='height:100%;'>
 		<ul class='nav nav-tabs '>
 			<li v-for='(tab,index) in tabData' :class='{"active":tab.active === true}'>
 				<a href = 'JavaScript:void(0)' @click='clickTab(tab)'>{{tab.name}}</a>
 			</li>
 		</ul>
-		<div id='resource-contentInfo' class='resource-contentInfo'>
-			11<component v-bind:is='currentView'></component>
+		<div id='resource-contentInfo' class='resource-contentInfo' style="height:calc(100% - 52px);overflow:auto">
+			<component v-bind:is='currentView'></component>
 		</div>
 	</div>
 </template>

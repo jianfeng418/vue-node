@@ -6,16 +6,16 @@
 					<router-link  v-bind:to=nav.link >{{nav.text}}</router-link>
 				</li>
 			</ul>
-			<div class='userInfoDiv'>
-				<ul>
-					<li></li>
-				</ul>
+			<div class='user-Info-div'>
+				<user-info></user-info>
 			</div>
+
 	</div>
 </template>
 
 <script>
 	import Vue from 'vue'
+	import userInfo from './userInfo'
 	export default{
 		name:'vhead',
 		data(){
@@ -32,6 +32,7 @@
 						return false;
 					}
 				})
+				
 				this.resetActive(this.navList,curIndex);
 			}
 		},
@@ -42,6 +43,8 @@
 		methods:{
 			clickLiNav(liIndex){
 				this.resetActive(this.navList,liIndex);
+
+				console.log(location.hash,this.$store.state.type)
 			},
 			updateNavActive(newVal,oldVal){
 				//头部导航没变，返回，不更新
@@ -72,9 +75,11 @@
 					})
 				}
 
-			}
+			},
+
 		},
-		props:['navList']
+		props:['navList'],
+		components:{userInfo}
 }
 </script>
 <style>
@@ -87,10 +92,15 @@
 		color:white;
 
 	}
-	.head-nav-wrapUl li a:focus, a:hover{
+	.head-nav-wrapUl li a:focus,.head-nav-wrapUl li a:hover,a:hover{
 		text-decoration:none;
 	}
 	.head-nav-wrapUl li.active{
 		border-bottom:1px solid white;
+	}
+	.user-Info-div{
+		float:right;
+		font-size:14px;
+
 	}
 </style>

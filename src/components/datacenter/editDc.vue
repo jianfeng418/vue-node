@@ -8,31 +8,68 @@
 						<input id='sourcename' class='form-control' name='sourcename' v-model='initName'/>
 					</div>
 				</div>
+				
+			</div>
+			<div id='step2' class='dialog-tabHide'>
 				<div class='form-group'>
-					<label class='col-xs-2 control-label' for='deacription'> 描述：</label>
+					<label class='col-xs-2 control-label' for='description'> 描述：</label>
 					<div class='col-xs-10'>
-						<textarea id='deacription' class='form-control' name='deacription' type='' style='width:50%;resize:none' ></textarea>
+						<textarea id='description' class='form-control' name='description' v-model='description' style='width:50%;resize:none' ></textarea>
 					</div>
 				</div>
 			</div>
-			<div id='step2' class='dialog-tabHide'>
-				this is step 2
-			</div>
 			<div id='step3' class='dialog-tabHide'>
-				this is step 3
+				<div class='form-group'>
+					<label class='col-xs-2 control-label' > 方式：</label>
+					<div class='col-xs-10'>
+						<select v-model="selected" class='form-control' style='width:50%'>
+						  <option v-for="option in options" v-bind:value="option.value">
+						    {{ option.value }}
+						  </option>
+						</select>
+						
+
+						
+					</div>
+				</div>
+
+				
 			</div>
 			<div id='step4' class='dialog-tabHide'>
-				this is step 4
+				
+				<table  class="table ">
+					<tr>
+						<td>名称：</td>
+						<td>{{initName}}</td>
+					</tr>
+					<tr>
+						<td>描述:</td>
+						<td>{{description}}</td>
+					</tr>
+					<tr>
+						<td>方式:</td>
+						<td>{{selected}}</td>
+					</tr>
+				</table>
+				
 			</div>
 		</form>
 </div>
 </template>
 <script>
 	export default{
-		name:'createVm',
+		name:'editDc',
 		data(){
 			return{
-				initName: this.appData.name
+				initName: this.appData.name,
+				description:'vue 是个好东西',
+				type:'',
+				selected: 'A',
+			    options: [
+			      { text: 'One', value: 'A' },
+			      { text: 'Two', value: 'B' },
+			      { text: 'Three', value: 'C' }
+			    ]
 			}
 		},
 			
@@ -68,4 +105,5 @@
 	.form-control{
 		border-radius: 0px !important;
 	}
+
 </style>

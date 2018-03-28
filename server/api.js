@@ -24,7 +24,7 @@ router.post('/api/login',(req,res) =>{
 router.get('/api/treeData',(req,res) => {
     var  treeDatas
     var sourceType = req.url.split('?')[1].split('=')[1];
-    console.log(sourceType)
+
     switch (sourceType){
          case 'mains':
             treeDatas = [
@@ -55,12 +55,12 @@ router.get('/api/treeData',(req,res) => {
                   icon:'folder',
                   type:'icenter',
                   children:[
-                      {text:'数据中心1',
+                      {text:'dc1',
                         id:'dc-1-1',
                         type:'dc',
                         icon:'folder',
                         children:[
-                          {text:'主机1',
+                          {text:'pp2',
                             id:'host-1-1-1',
                             icon:'file',
                             type:'host'
@@ -77,12 +77,12 @@ router.get('/api/treeData',(req,res) => {
                   icon:'folder',
                   type:'icenter',
                   children:[
-                      {text:'数据中心-VM',
+                      {text:'cnpm',
                         id:'d1-1',
                         type:'dc',
                         icon:'folder',
                         children:[
-                          {text:'虚拟机1',
+                          {text:'nmp',
                             id:'d1-1-1',
                             type:'vm',
                             icon:'file',
@@ -100,12 +100,12 @@ router.get('/api/treeData',(req,res) => {
                   icon:'folder',
                   type:'icenter',
                   children:[
-                      {text:'数据中心-Storage',
+                      {text:'git-hub',
                         id:'s1-1',
                         icon:'folder',
                         type:'dc',
                         children:[
-                          {text:'存储1',
+                          {text:'git',
                             id:'d1-1-1',
                             icon:'file',
                             type:'store'
@@ -121,12 +121,12 @@ router.get('/api/treeData',(req,res) => {
                   icon:'folder',
                   type:'icenter',
                   children:[
-                      {text:'数据中心',
+                      {text:'svn',
                         id:'d1-1',
                         icon:'folder',
                         type:'dc',
                         children:[
-                          {text:'网络1',
+                          {text:'fetch',
                             id:'d1-1-1',
                             icon:'file',
                             type:'network'
@@ -144,12 +144,12 @@ router.get('/api/treeData',(req,res) => {
                   icon:'folder',
                   type:'icenter',
                   children:[
-                      {text:'数据中心',
+                      {text:'javasc',
                         id:'s1-1',
                         icon:'folder',
                         type:'dc',
                         children:[
-                          {text:'高级网络1',
+                          {text:'js',
                             id:'s1-1-1',
                             icon:'file',
                             type:'sdn'

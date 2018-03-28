@@ -1,11 +1,11 @@
 <template>
 	<div>
-		<button class='btn btn-default' @click='createNetwork'>创建network</button>
-		<button class='btn btn-default' @click='modifyIcenter'>编辑network</button>
+		<button class='btn btn-default' @click='createNetwork'>创建host</button>
+		<button class='btn btn-default' @click='modifyIcenter'>编辑host</button>
 	</div>
 </template>
 <script>
-	import createNetworkCom from './createNetwork'
+	import createNetworkCom from './createHost'
 	export default{
 		name:'networkBtns',
 		methods:{
